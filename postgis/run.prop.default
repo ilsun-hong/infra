@@ -1,0 +1,6 @@
+# Docker Properties
+SERVICE_NAME=postgis
+
+# Postgis Properties
+POSTGIS_PORT=5432
+POSTGIS_PASSWORD=postgis_password

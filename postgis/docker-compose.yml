@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  postgis:
+    restart: always
+    container_name: ${SERVICE_NAME}
+    image: mdillon/postgis:9.6-alpine
+    ports:
+      - ${POSTGIS_PORT}:5432
+    environment:
+      POSTGRES_PASSWORD: ${POSTGIS_PASSWORD}
+    volumes:
+      - ${PWD}/conf.d/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - ${PWD}/conf.d/init-sql.d:/init-sql.d
+      - ${PWD}/dump.d:/dump.d
+      - ${PWD}/data:/var/lib/postgresql/data
